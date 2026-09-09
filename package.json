@@ -2,10 +2,8 @@
   "name": "hitech-wood-handicrafts",
   "private": true,
   "scripts": {
+    "postinstall": "npm install --prefix client",
     "build": "npm run build --prefix client",
     "dev": "npm run dev --prefix client"
-  },
-  "dependencies": {
-    "react-router-dom": "^7.18.2"
   }
 }
