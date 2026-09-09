@@ -9,7 +9,6 @@ import { CartProvider } from "../context/CartContext";
 import { AuthProvider } from "../context/AuthContext";
 import CartDrawer from "../components/cart/CartDrawer";
 import AuthModal from "../components/auth/AuthModal";
-import FirebaseStatusBadge from "../components/common/FirebaseStatusBadge";
 
 function MainLayout() {
   return (
@@ -28,7 +27,6 @@ function MainLayout() {
         <ScrollToTopButton />
         <CartDrawer />
         <AuthModal />
-        <FirebaseStatusBadge />
       </CartProvider>
     </AuthProvider>
   );
