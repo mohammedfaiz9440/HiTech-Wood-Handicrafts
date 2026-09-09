@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 import { ShoppingBag, Share2, Check } from "lucide-react";
 import { shareProduct } from "../../utils/shareUtils";
+import { products as localProducts } from "../../data/Product";
 
 interface ProductCardProps {
   id: number;
@@ -15,6 +16,18 @@ interface ProductCardProps {
 function ProductCard({ id, name, price, image, category = "Handicrafts" }: ProductCardProps) {
   const { addToCart } = useCart();
   const [copied, setCopied] = useState(false);
+  const [currentImg, setCurrentImg] = useState(image);
+
+  React.useEffect(() => {
+    setCurrentImg(image);
+  }, [image]);
+
+  const handleImageError = () => {
+    const fallback = localProducts.find((p) => p.id === id);
+    if (fallback && fallback.image !== currentImg) {
+      setCurrentImg(fallback.image);
+    }
+  };
 
   const handleQuickAdd = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -45,8 +58,9 @@ function ProductCard({ id, name, price, image, category = "Handicrafts" }: Produ
       <div className="relative overflow-hidden bg-gray-100">
         <Link to={`/products/${id}`} className="block">
           <img
-            src={image}
+            src={currentImg}
             alt={name}
+            onError={handleImageError}
             className="w-full h-64 object-cover group-hover:scale-105 transition duration-500"
           />
         </Link>

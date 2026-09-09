@@ -54,9 +54,27 @@ export async function getAllProducts(): Promise<Product[]> {
       });
     });
 
-    // Merge: Include all local products, updating with Firestore data if present, plus any Firestore-only products
+    // Helper to check if image is a valid external URL
+    const isValidExternalUrl = (url?: string) =>
+      typeof url === "string" &&
+      (url.startsWith("http://") || url.startsWith("https://") || url.startsWith("data:"));
+
+    // Merge: Include all local products, updating with Firestore data if present, while preserving bundled image assets
     const firestoreMap = new Map(firestoreProducts.map((p) => [p.id, p]));
-    const merged: Product[] = localProducts.map((lp) => firestoreMap.get(lp.id) || lp);
+    const merged: Product[] = localProducts.map((lp) => {
+      const fp = firestoreMap.get(lp.id);
+      if (!fp) return lp;
+      const useFpImage = isValidExternalUrl(fp.image);
+      return {
+        ...lp,
+        name: fp.name || lp.name,
+        price: fp.price || lp.price,
+        category: fp.category || lp.category,
+        image: useFpImage ? fp.image : lp.image,
+        galleryImages: useFpImage && fp.galleryImages?.length ? fp.galleryImages : lp.galleryImages,
+      };
+    });
+
     firestoreProducts.forEach((fp) => {
       if (!merged.some((p) => p.id === fp.id)) {
         merged.push(fp);
@@ -72,20 +90,25 @@ export async function getAllProducts(): Promise<Product[]> {
 
 export async function getProductById(id: number | string): Promise<Product | undefined> {
   const numericId = Number(id);
-  
+  const local = localProducts.find((p) => p.id === numericId);
+  const isValidExternalUrl = (url?: string) =>
+    typeof url === "string" &&
+    (url.startsWith("http://") || url.startsWith("https://") || url.startsWith("data:"));
+
   try {
     const docRef = doc(db, PRODUCTS_COLLECTION, String(id));
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
       const data = docSnap.data();
+      const useDocImage = isValidExternalUrl(data.image);
       return {
         id: numericId,
-        name: data.name,
-        price: data.price,
-        category: data.category,
-        image: data.image,
-        galleryImages: data.galleryImages || [data.image],
+        name: data.name || local?.name || "Wooden Handicraft",
+        price: data.price || local?.price || "₹0",
+        category: data.category || local?.category || "General",
+        image: useDocImage ? data.image : (local?.image || data.image || ""),
+        galleryImages: useDocImage && data.galleryImages?.length ? data.galleryImages : (local?.galleryImages || [data.image]),
       };
     }
 
