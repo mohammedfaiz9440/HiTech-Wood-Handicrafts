@@ -1,0 +1,11 @@
+{
+  "name": "hitech-wood-handicrafts",
+  "private": true,
+  "scripts": {
+    "build": "npm run build --prefix client",
+    "dev": "npm run dev --prefix client"
+  },
+  "dependencies": {
+    "react-router-dom": "^7.18.2"
+  }
+}

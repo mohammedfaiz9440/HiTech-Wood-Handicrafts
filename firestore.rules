@@ -1,0 +1,20 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Allow public read access to the product catalog
+    match /products/{productId} {
+      allow read: if true;
+      allow write: if true; // Set to true during initial seeding/development
+    }
+
+    // Orders collection (customers can create orders)
+    match /orders/{orderId} {
+      allow read: if request.auth != null;
+      allow create: if true;
+      allow update, delete: if request.auth != null;
+    }
+
+  }
+}
