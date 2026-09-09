@@ -3,17 +3,24 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // Allow public read access to the product catalog
+    // Public read-only access to products catalog. No public writes allowed.
     match /products/{productId} {
       allow read: if true;
-      allow write: if true; // Set to true during initial seeding/development
+      allow write: if false; // Locked: Only admin through Firebase Console can edit
     }
 
-    // Orders collection (customers can create orders)
+    // Orders collection: Customers can submit orders, but cannot modify or delete them
     match /orders/{orderId} {
       allow read: if request.auth != null;
+      allow create: if true; // Customers can submit new orders
+      allow update, delete: if false; // Prevent tampering with existing orders
+    }
+
+    // Inquiries and custom orders
+    match /custom_orders/{inquiryId} {
+      allow read: if request.auth != null;
       allow create: if true;
-      allow update, delete: if request.auth != null;
+      allow update, delete: if false;
     }
 
   }
