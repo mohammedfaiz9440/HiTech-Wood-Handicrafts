@@ -15,7 +15,6 @@ import {
   MessageCircle,
 } from "lucide-react";
 import ProductZoomImage from "../components/product/ProductZoomImage";
-import WoodFinishSelector from "../components/product/WoodFinishSelector";
 import ProductSpecsTabs from "../components/product/ProductSpecsTabs";
 import RelatedProducts from "../components/product/RelatedProducts";
 import { shareProduct } from "../utils/shareUtils";
@@ -29,7 +28,6 @@ function ProductDetails() {
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [quantity, setQuantity] = useState<number>(1);
-  const [selectedFinish, setSelectedFinish] = useState<string>("");
   const [copiedLink, setCopiedLink] = useState<boolean>(false);
 
   // Dynamic meta tags for rich social and WhatsApp link previews (must be at top level before conditional returns)
@@ -48,13 +46,6 @@ function ProductDetails() {
       getProductById(id).then((data) => {
         if (isMounted) {
           setProduct(data || null);
-          if (data) {
-            setSelectedFinish(
-              data.category.toLowerCase() === "sofas"
-                ? "Forest Emerald Velvet"
-                : "Natural Teak"
-            );
-          }
           setLoading(false);
         }
       });
@@ -113,7 +104,7 @@ function ProductDetails() {
     addToCart(product!, quantity);
   };
 
-  // WhatsApp order function with selected finish and link
+  // WhatsApp order function with link
   const handleWhatsAppOrder = () => {
     if (!product) return;
     const pageUrl = window.location.href;
@@ -121,7 +112,6 @@ function ProductDetails() {
 
 *Product:* ${product.name}
 *Category:* ${product.category}
-*Selected Finish:* ${selectedFinish || "Natural Wood / Standard"}
 *Price:* ${product.price}
 *Quantity:* ${quantity}
 *Product Link:* ${pageUrl}
@@ -139,7 +129,7 @@ I would like to inquire about customization options, delivery timeline, and plac
   // Share via WhatsApp or Native Web Share
   const handleShareWhatsApp = async () => {
     if (!product) return;
-    await shareProduct(product, selectedFinish);
+    await shareProduct(product);
   };
 
   // Copy link
@@ -240,14 +230,6 @@ I would like to inquire about customization options, delivery timeline, and plac
                   Precision-crafted from seasoned hardwood by master artisans. Designed with enduring structural integrity, heritage elegance, and tailored finishes for contemporary Indian homes.
                 </p>
 
-                {/* Wood Finish / Fabric Swatch Selector */}
-                <div className="mt-6">
-                  <WoodFinishSelector
-                    category={product.category}
-                    selectedFinish={selectedFinish}
-                    onSelectFinish={(finish) => setSelectedFinish(finish)}
-                  />
-                </div>
 
                 {/* Trust Highlights Strip */}
                 <div className="mt-6 grid grid-cols-2 gap-3 pt-6 border-t border-gray-100">
