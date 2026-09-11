@@ -93,9 +93,6 @@ export const WoodFinishSelector: React.FC<WoodFinishSelectorProps> = ({
           {label}:{" "}
           <span className="text-amber-800 font-bold">{selectedFinish || currentOption.name}</span>
         </span>
-        <span className="text-xs text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full font-medium border border-emerald-200">
-          Custom Polish Included
-        </span>
       </div>
 
       <div className="flex flex-wrap gap-3 mb-2">
