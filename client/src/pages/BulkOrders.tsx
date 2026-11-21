@@ -242,26 +242,28 @@ Please share commercial-grade options and a volume quote.`;
           <div className="lg:col-span-2">
             <form
               onSubmit={handleSubmit}
-              className="bg-white rounded-2xl shadow-sm border border-gray-200/80 p-6 sm:p-8 space-y-5"
+              className="bg-white rounded-2xl shadow-sm border border-stone-200/90 p-5 sm:p-6 space-y-3.5"
             >
-              <div>
-                <h2 className="text-xl font-bold text-gray-900">Commercial Inquiry Form</h2>
-                <p className="text-xs text-gray-500 mt-1">
-                  Tell us about your property and requirements. We typically respond within 24 business hours.
-                </p>
+              <div className="flex items-center justify-between pb-2.5 border-b border-gray-100">
+                <div>
+                  <h2 className="text-base sm:text-lg font-bold text-gray-900">Commercial Inquiry Form</h2>
+                  <p className="text-xs text-gray-500">Fast direct-factory quote for hotels, restaurants & commercial spaces.</p>
+                </div>
+                <span className="hidden sm:inline-flex text-[11px] font-semibold text-amber-900 bg-amber-50 border border-amber-200/70 px-2.5 py-0.5 rounded-full">
+                  Direct Factory Rates
+                </span>
               </div>
 
               {errorMsg && (
-                <div className="p-3 bg-red-50 border border-red-200 rounded-xl text-xs text-red-700 font-medium">
+                <div className="p-2.5 bg-red-50 border border-red-200 rounded-lg text-xs text-red-700 font-medium">
                   {errorMsg}
                 </div>
               )}
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {/* Business Name */}
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">
+                  <label className="block text-[11px] font-semibold text-gray-700 mb-1">
                     Business name *
                   </label>
                   <input
@@ -271,13 +273,13 @@ Please share commercial-grade options and a volume quote.`;
                     placeholder="e.g. Grand Hyatt / Olive Bistro"
                     value={formData.business_name}
                     onChange={(e) => handleChange("business_name", e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-lg border border-gray-300 text-sm focus:ring-2 focus:ring-amber-800 focus:outline-none"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-300 text-xs sm:text-sm focus:ring-2 focus:ring-amber-800 focus:border-amber-800 focus:outline-none"
                   />
                 </div>
 
                 {/* Contact Person */}
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">
+                  <label className="block text-[11px] font-semibold text-gray-700 mb-1">
                     Contact person *
                   </label>
                   <input
@@ -287,13 +289,13 @@ Please share commercial-grade options and a volume quote.`;
                     placeholder="e.g. Rajesh Kumar"
                     value={formData.contact_person}
                     onChange={(e) => handleChange("contact_person", e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-lg border border-gray-300 text-sm focus:ring-2 focus:ring-amber-800 focus:outline-none"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-300 text-xs sm:text-sm focus:ring-2 focus:ring-amber-800 focus:border-amber-800 focus:outline-none"
                   />
                 </div>
 
                 {/* Email */}
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">
+                  <label className="block text-[11px] font-semibold text-gray-700 mb-1">
                     Email *
                   </label>
                   <input
@@ -303,13 +305,13 @@ Please share commercial-grade options and a volume quote.`;
                     placeholder="e.g. procurement@hotel.com"
                     value={formData.email}
                     onChange={(e) => handleChange("email", e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-lg border border-gray-300 text-sm focus:ring-2 focus:ring-amber-800 focus:outline-none"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-300 text-xs sm:text-sm focus:ring-2 focus:ring-amber-800 focus:border-amber-800 focus:outline-none"
                   />
                 </div>
 
                 {/* Phone */}
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">
+                  <label className="block text-[11px] font-semibold text-gray-700 mb-1">
                     Phone *
                   </label>
                   <input
@@ -319,22 +321,22 @@ Please share commercial-grade options and a volume quote.`;
                     placeholder="e.g. 9876543210"
                     value={formData.phone}
                     onChange={(e) => handleChange("phone", e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-lg border border-gray-300 text-sm focus:ring-2 focus:ring-amber-800 focus:outline-none"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-300 text-xs sm:text-sm focus:ring-2 focus:ring-amber-800 focus:border-amber-800 focus:outline-none"
                   />
                 </div>
 
                 {/* Business Type */}
-                <div className="md:col-span-2">
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">
+                <div>
+                  <label className="block text-[11px] font-semibold text-gray-700 mb-1">
                     Business type *
                   </label>
                   <select
                     required
                     value={formData.business_type}
                     onChange={(e) => handleChange("business_type", e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-lg border border-gray-300 text-sm bg-white focus:ring-2 focus:ring-amber-800 focus:outline-none"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-300 text-xs sm:text-sm bg-white focus:ring-2 focus:ring-amber-800 focus:border-amber-800 focus:outline-none"
                   >
-                    <option value="">Select...</option>
+                    <option value="">Select property type...</option>
                     <option value="Hotel">Hotel</option>
                     <option value="Restaurant">Restaurant</option>
                     <option value="Café / Coffee Shop">Café / Coffee Shop</option>
@@ -345,25 +347,9 @@ Please share commercial-grade options and a volume quote.`;
                   </select>
                 </div>
 
-                {/* Items / furniture needed */}
-                <div className="md:col-span-2">
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">
-                    Items / furniture needed *
-                  </label>
-                  <textarea
-                    required
-                    rows={4}
-                    maxLength={2000}
-                    placeholder="e.g. 20 dining chairs, 10 tables (4-seater), 1 reception counter, 15 king-size hotel beds with headboards."
-                    value={formData.items_description}
-                    onChange={(e) => handleChange("items_description", e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-lg border border-gray-300 text-sm focus:ring-2 focus:ring-amber-800 focus:outline-none"
-                  />
-                </div>
-
                 {/* Approx. quantity */}
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">
+                  <label className="block text-[11px] font-semibold text-gray-700 mb-1">
                     Approx. quantity
                   </label>
                   <input
@@ -372,52 +358,66 @@ Please share commercial-grade options and a volume quote.`;
                     placeholder="e.g. 30 pieces / 15 rooms"
                     value={formData.quantity}
                     onChange={(e) => handleChange("quantity", e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-lg border border-gray-300 text-sm focus:ring-2 focus:ring-amber-800 focus:outline-none"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-300 text-xs sm:text-sm focus:ring-2 focus:ring-amber-800 focus:border-amber-800 focus:outline-none"
+                  />
+                </div>
+
+                {/* Items / furniture needed */}
+                <div className="md:col-span-2">
+                  <label className="block text-[11px] font-semibold text-gray-700 mb-1">
+                    Items / furniture needed *
+                  </label>
+                  <textarea
+                    required
+                    rows={2}
+                    maxLength={2000}
+                    placeholder="e.g. 20 dining chairs, 10 tables (4-seater), 1 reception counter, 15 king beds with headboards"
+                    value={formData.items_description}
+                    onChange={(e) => handleChange("items_description", e.target.value)}
+                    className="w-full px-3 py-2 rounded-lg border border-gray-300 text-xs sm:text-sm focus:ring-2 focus:ring-amber-800 focus:border-amber-800 focus:outline-none resize-none"
                   />
                 </div>
 
                 {/* Delivery timeline */}
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">
+                  <label className="block text-[11px] font-semibold text-gray-700 mb-1">
                     Delivery timeline
                   </label>
                   <input
                     type="text"
                     maxLength={120}
-                    placeholder="e.g. within 6 weeks / by November"
+                    placeholder="e.g. within 6 weeks / urgent"
                     value={formData.delivery_timeline}
                     onChange={(e) => handleChange("delivery_timeline", e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-lg border border-gray-300 text-sm focus:ring-2 focus:ring-amber-800 focus:outline-none"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-300 text-xs sm:text-sm focus:ring-2 focus:ring-amber-800 focus:border-amber-800 focus:outline-none"
                   />
                 </div>
 
                 {/* Additional notes */}
-                <div className="md:col-span-2">
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">
-                    Additional notes
+                <div>
+                  <label className="block text-[11px] font-semibold text-gray-700 mb-1">
+                    Additional notes / wood preference
                   </label>
-                  <textarea
-                    rows={3}
+                  <input
+                    type="text"
                     maxLength={2000}
-                    placeholder="Specify preferred wood species (Teak, Sheesham, Oak), polish type, architectural themes, or CAD drawings availability."
+                    placeholder="e.g. Teak, Sheesham, CAD drawings available"
                     value={formData.notes}
                     onChange={(e) => handleChange("notes", e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-lg border border-gray-300 text-sm focus:ring-2 focus:ring-amber-800 focus:outline-none"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-300 text-xs sm:text-sm focus:ring-2 focus:ring-amber-800 focus:border-amber-800 focus:outline-none"
                   />
                 </div>
-
               </div>
 
               {/* Submit Button */}
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full inline-flex items-center justify-center gap-2 bg-amber-800 hover:bg-amber-900 text-white px-6 py-3.5 rounded-xl font-bold text-sm shadow-md transition-colors disabled:opacity-60"
+                className="w-full inline-flex items-center justify-center gap-2 bg-amber-800 hover:bg-amber-900 text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-sm transition-colors disabled:opacity-60 mt-1"
               >
                 <Send className="w-4 h-4" />
-                <span>{loading ? "Sending Inquiry..." : "Send Inquiry"}</span>
+                <span>{loading ? "Sending Inquiry..." : "Send Commercial Inquiry"}</span>
               </button>
-
             </form>
           </div>
 
