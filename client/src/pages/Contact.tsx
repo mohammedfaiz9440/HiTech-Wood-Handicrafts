@@ -66,7 +66,7 @@ function Contact() {
 
       {/* Info Cards */}
       <section className="py-12 bg-gray-50">
-        <div className="mx-auto grid max-w-5xl gap-6 px-6 md:grid-cols-3">
+        <div className="mx-auto grid max-w-5xl gap-6 px-6 sm:grid-cols-2 lg:grid-cols-4">
           <a
             href={businessContact.phoneHref}
             className="flex items-center gap-4 bg-white p-5 rounded-2xl border border-gray-200/80 shadow-sm text-gray-700 hover:text-amber-800 hover:border-amber-800 transition"
@@ -105,6 +105,21 @@ function Contact() {
             <div>
               <div className="text-xs text-gray-500 font-medium">Location</div>
               <div className="font-semibold text-xs leading-snug line-clamp-2">Punjagutta, Hyderabad</div>
+            </div>
+          </a>
+
+          <a
+            href={businessContact.instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-4 bg-white p-5 rounded-2xl border border-gray-200/80 shadow-sm text-gray-700 hover:text-amber-800 hover:border-amber-800 transition"
+          >
+            <div className="w-11 h-11 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-amber-800"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </div>
+            <div>
+              <div className="text-xs text-gray-500 font-medium">Instagram</div>
+              <div className="font-semibold text-sm">{businessContact.instagramHandle}</div>
             </div>
           </a>
         </div>

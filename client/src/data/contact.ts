@@ -8,4 +8,6 @@ export const businessContact = {
   phoneDisplay: "+91 63042 70702",
   phoneHref: "tel:+916304270702",
   whatsappUrl: "https://wa.me/916304270702",
+  instagramUrl: "https://www.instagram.com/hitech_wood_handicrsfts",
+  instagramHandle: "@hitech_wood_handicrsfts",
 };
