@@ -125,35 +125,35 @@ export default function CustomOrder() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-10 px-4 sm:px-6">
-      <div className="max-w-2xl mx-auto">
+    <div className="min-h-screen bg-gray-50 py-6 sm:py-8 px-4 sm:px-6">
+      <div className="max-w-xl mx-auto">
         
         {/* Minimal Header */}
-        <div className="text-center mb-8">
-          <span className="text-amber-800 text-xs font-bold uppercase tracking-wider block mb-1">
+        <div className="text-center mb-5">
+          <span className="text-amber-800 text-[11px] font-bold uppercase tracking-widest block mb-0.5">
             Bespoke Woodworking
           </span>
-          <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
             Custom Order Request
           </h1>
-          <p className="mt-2 text-xs sm:text-sm text-gray-500 max-w-md mx-auto">
-            Share your requirements, preferred wood species, and budget. Our master craftsman will get back to you with an exact estimate.
+          <p className="mt-1 text-xs text-gray-500 max-w-sm mx-auto">
+            Direct workshop estimate within 24 hours for custom furniture pieces.
           </p>
         </div>
 
         {/* Minimal Form Card */}
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-200/80 p-6 sm:p-8">
+        <div className="bg-white rounded-2xl shadow-sm border border-stone-200/90 p-5 sm:p-6">
           {errorMessage && (
-            <div className="mb-5 p-3 bg-red-50 border border-red-200 text-red-700 text-xs rounded-xl font-medium">
+            <div className="mb-3.5 p-2.5 bg-red-50 border border-red-200 text-red-700 text-xs rounded-xl font-medium">
               {errorMessage}
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-3">
             {/* Contact Details */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-1">
+                <label className="block text-[11px] font-semibold text-gray-700 mb-1">
                   Full Name *
                 </label>
                 <input
@@ -162,12 +162,12 @@ export default function CustomOrder() {
                   placeholder="Your full name"
                   value={formData.fullName}
                   onChange={(e) => handleChange("fullName", e.target.value)}
-                  className="w-full px-3.5 py-2 rounded-lg border border-gray-300 text-sm focus:ring-2 focus:ring-amber-800 focus:outline-none"
+                  className="w-full px-3 py-2 rounded-lg border border-gray-300 text-xs sm:text-sm focus:ring-2 focus:ring-amber-800 focus:border-amber-800 focus:outline-none"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-1">
+                <label className="block text-[11px] font-semibold text-gray-700 mb-1">
                   Phone (WhatsApp) *
                 </label>
                 <input
@@ -176,15 +176,15 @@ export default function CustomOrder() {
                   placeholder="+91 98765 43210"
                   value={formData.phone}
                   onChange={(e) => handleChange("phone", e.target.value)}
-                  className="w-full px-3.5 py-2 rounded-lg border border-gray-300 text-sm focus:ring-2 focus:ring-amber-800 focus:outline-none"
+                  className="w-full px-3 py-2 rounded-lg border border-gray-300 text-xs sm:text-sm focus:ring-2 focus:ring-amber-800 focus:border-amber-800 focus:outline-none"
                 />
               </div>
             </div>
 
             {/* Email & Budget */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-1">
+                <label className="block text-[11px] font-semibold text-gray-700 mb-1">
                   Email Address
                 </label>
                 <input
@@ -192,12 +192,12 @@ export default function CustomOrder() {
                   placeholder="name@example.com"
                   value={formData.email}
                   onChange={(e) => handleChange("email", e.target.value)}
-                  className="w-full px-3.5 py-2 rounded-lg border border-gray-300 text-sm focus:ring-2 focus:ring-amber-800 focus:outline-none"
+                  className="w-full px-3 py-2 rounded-lg border border-gray-300 text-xs sm:text-sm focus:ring-2 focus:ring-amber-800 focus:border-amber-800 focus:outline-none"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-1">
+                <label className="block text-[11px] font-semibold text-gray-700 mb-1">
                   Estimated Budget (₹)
                 </label>
                 <input
@@ -205,22 +205,22 @@ export default function CustomOrder() {
                   placeholder="e.g. ₹35,000 - ₹50,000"
                   value={formData.estimatedBudget}
                   onChange={(e) => handleChange("estimatedBudget", e.target.value)}
-                  className="w-full px-3.5 py-2 rounded-lg border border-gray-300 text-sm focus:ring-2 focus:ring-amber-800 focus:outline-none"
+                  className="w-full px-3 py-2 rounded-lg border border-gray-300 text-xs sm:text-sm focus:ring-2 focus:ring-amber-800 focus:border-amber-800 focus:outline-none"
                 />
               </div>
             </div>
 
             {/* Furniture Type & Material */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-1">
+                <label className="block text-[11px] font-semibold text-gray-700 mb-1">
                   Furniture Type *
                 </label>
                 <select
                   required
                   value={formData.furnitureType}
                   onChange={(e) => handleChange("furnitureType", e.target.value)}
-                  className="w-full px-3.5 py-2 rounded-lg border border-gray-300 text-sm bg-white focus:ring-2 focus:ring-amber-800 focus:outline-none"
+                  className="w-full px-3 py-2 rounded-lg border border-gray-300 text-xs sm:text-sm bg-white focus:ring-2 focus:ring-amber-800 focus:border-amber-800 focus:outline-none"
                 >
                   <option value="">Select Category</option>
                   <option value="Sofa">Sofa / Sectional</option>
@@ -235,7 +235,7 @@ export default function CustomOrder() {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-1">
+                <label className="block text-[11px] font-semibold text-gray-700 mb-1">
                   Preferred Material
                 </label>
                 <input
@@ -243,82 +243,83 @@ export default function CustomOrder() {
                   placeholder="e.g. Burma Teak, Sheesham, Oak"
                   value={formData.material}
                   onChange={(e) => handleChange("material", e.target.value)}
-                  className="w-full px-3.5 py-2 rounded-lg border border-gray-300 text-sm focus:ring-2 focus:ring-amber-800 focus:outline-none"
+                  className="w-full px-3 py-2 rounded-lg border border-gray-300 text-xs sm:text-sm focus:ring-2 focus:ring-amber-800 focus:border-amber-800 focus:outline-none"
                 />
               </div>
             </div>
 
-            {/* Dimensions */}
-            <div>
-              <label className="block text-xs font-semibold text-gray-700 mb-1">
-                Dimensions (L × W × H)
-              </label>
-              <input
-                type="text"
-                placeholder="e.g. 7ft (L) × 3ft (W) × 3ft (H) or room size"
-                value={formData.dimensions}
-                onChange={(e) => handleChange("dimensions", e.target.value)}
-                className="w-full px-3.5 py-2 rounded-lg border border-gray-300 text-sm focus:ring-2 focus:ring-amber-800 focus:outline-none"
-              />
+            {/* Dimensions & Reference Photo side-by-side */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label className="block text-[11px] font-semibold text-gray-700 mb-1">
+                  Dimensions (L × W × H)
+                </label>
+                <input
+                  type="text"
+                  placeholder="e.g. 7ft × 3ft × 3ft"
+                  value={formData.dimensions}
+                  onChange={(e) => handleChange("dimensions", e.target.value)}
+                  className="w-full px-3 py-2 rounded-lg border border-gray-300 text-xs sm:text-sm focus:ring-2 focus:ring-amber-800 focus:border-amber-800 focus:outline-none"
+                />
+              </div>
+
+              <div>
+                <label className="block text-[11px] font-semibold text-gray-700 mb-1">
+                  Reference Photo / Sketch (Optional)
+                </label>
+                <div className="flex items-center gap-1.5">
+                  <label className="flex-1 border border-gray-300 hover:border-amber-800 rounded-lg px-3 py-2 flex items-center justify-between cursor-pointer bg-gray-50/70 hover:bg-gray-50 transition text-xs sm:text-sm h-[38px]">
+                    <input
+                      type="file"
+                      accept="image/*,.pdf"
+                      className="hidden"
+                      onChange={(e) => {
+                        const file = e.target.files?.[0];
+                        if (file) setFileName(file.name);
+                      }}
+                    />
+                    <span className="flex items-center gap-1.5 text-gray-600 truncate">
+                      <Paperclip size={13} className="text-amber-800 shrink-0" />
+                      <span className="truncate">{fileName ? fileName : "Attach photo/sketch"}</span>
+                    </span>
+                    <span className="text-[10px] text-gray-400 font-medium ml-1 shrink-0">Browse</span>
+                  </label>
+                  {fileName && (
+                    <button
+                      type="button"
+                      onClick={() => setFileName(null)}
+                      className="p-1.5 text-gray-400 hover:text-red-600 rounded-lg transition"
+                      title="Remove attachment"
+                    >
+                      <X size={15} />
+                    </button>
+                  )}
+                </div>
+              </div>
             </div>
 
             {/* Requirements Description */}
             <div>
-              <label className="block text-xs font-semibold text-gray-700 mb-1">
+              <label className="block text-[11px] font-semibold text-gray-700 mb-1">
                 Requirements & Details
               </label>
               <textarea
-                rows={3}
+                rows={2}
                 placeholder="Describe your design, specific carving patterns, finish polish, or storage requirements..."
                 value={formData.requirements}
                 onChange={(e) => handleChange("requirements", e.target.value)}
-                className="w-full px-3.5 py-2 rounded-lg border border-gray-300 text-sm focus:ring-2 focus:ring-amber-800 focus:outline-none"
+                className="w-full px-3 py-2 rounded-lg border border-gray-300 text-xs sm:text-sm focus:ring-2 focus:ring-amber-800 focus:border-amber-800 focus:outline-none resize-none"
               />
             </div>
 
-            {/* Compact Reference Attachment */}
-            <div>
-              <label className="block text-xs font-semibold text-gray-700 mb-1">
-                Reference Photo / Sketch (Optional)
-              </label>
-              <div className="flex items-center gap-2">
-                <label className="flex-1 border border-gray-300 hover:border-amber-800 rounded-lg px-3.5 py-2 flex items-center justify-between cursor-pointer bg-gray-50/70 hover:bg-gray-50 transition text-xs">
-                  <input
-                    type="file"
-                    accept="image/*,.pdf"
-                    className="hidden"
-                    onChange={(e) => {
-                      const file = e.target.files?.[0];
-                      if (file) setFileName(file.name);
-                    }}
-                  />
-                  <span className="flex items-center gap-2 text-gray-600 truncate">
-                    <Paperclip size={14} className="text-amber-800 flex-shrink-0" />
-                    <span className="truncate">{fileName ? fileName : "Attach reference photo or sketch"}</span>
-                  </span>
-                  <span className="text-[11px] text-gray-400 font-medium ml-2 flex-shrink-0">Browse</span>
-                </label>
-                {fileName && (
-                  <button
-                    type="button"
-                    onClick={() => setFileName(null)}
-                    className="p-2 text-gray-400 hover:text-red-600 rounded-lg transition"
-                    title="Remove attachment"
-                  >
-                    <X size={16} />
-                  </button>
-                )}
-              </div>
-            </div>
-
             {/* Dual Action Buttons */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1.5">
               <button
                 type="button"
                 onClick={handleWhatsAppSubmit}
                 className="w-full bg-[#25D366] hover:bg-[#20ba59] text-white py-2.5 px-4 rounded-xl font-bold text-xs sm:text-sm shadow-xs transition flex items-center justify-center gap-2"
               >
-                <MessageCircle size={16} className="fill-current" />
+                <MessageCircle size={15} className="fill-current" />
                 <span>Send via WhatsApp</span>
               </button>
 
@@ -327,7 +328,7 @@ export default function CustomOrder() {
                 disabled={submitting}
                 className="w-full bg-amber-800 hover:bg-amber-900 text-white py-2.5 px-4 rounded-xl font-bold text-xs sm:text-sm shadow-xs transition flex items-center justify-center gap-2 disabled:opacity-60"
               >
-                <Send size={15} />
+                <Send size={14} />
                 <span>{submitting ? "Submitting..." : "Submit Online"}</span>
               </button>
             </div>
