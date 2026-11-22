@@ -9,7 +9,19 @@ interface ProductSpecsTabsProps {
 export const ProductSpecsTabs: React.FC<ProductSpecsTabsProps> = ({ product }) => {
   const [activeTab, setActiveTab] = useState<"specs" | "craftsmanship" | "warranty" | "care">("specs");
 
-  const getDimensions = (category: string) => {
+  const getDimensions = (category: string, name: string = "") => {
+    const lowerName = name.toLowerCase();
+    if (lowerName.includes("bedside") || lowerName.includes("nightstand") || lowerName.includes("side table")) {
+      return [
+        { label: "Overall Dimensions", value: "19\" Width × 16\" Depth × 21\" Height" },
+        { label: "Drawer Mechanism", value: "Heavy-duty telescopic steel ball-bearing slider channel" },
+        { label: "Front Facet", value: "Hand-woven natural octagonal cane / rattan webbing" },
+        { label: "Open Lower Shelf", value: "10\" high clearance for books, lamps & bedtime essentials" },
+        { label: "Side Lips / Rims", value: "Raised gallery borders preventing tabletop items from sliding off" },
+        { label: "Legs", value: "Solid turned cylindrical teakwood legs with protective floor pads" },
+      ];
+    }
+
     switch (category.toLowerCase()) {
       case "doors":
         return [
@@ -55,7 +67,7 @@ export const ProductSpecsTabs: React.FC<ProductSpecsTabsProps> = ({ product }) =
     }
   };
 
-  const dimensions = getDimensions(product.category);
+  const dimensions = getDimensions(product.category, product.name);
 
   return (
     <div className="mt-12 bg-white rounded-2xl border border-gray-200/90 shadow-sm overflow-hidden">

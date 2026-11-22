@@ -70,6 +70,7 @@ export async function getAllProducts(): Promise<Product[]> {
         name: fp.name || lp.name,
         price: fp.price || lp.price,
         category: fp.category || lp.category,
+        description: fp.description || lp.description,
         image: useFpImage ? fp.image : lp.image,
         galleryImages: useFpImage && fp.galleryImages?.length ? fp.galleryImages : lp.galleryImages,
       };
@@ -107,6 +108,7 @@ export async function getProductById(id: number | string): Promise<Product | und
         name: data.name || local?.name || "Wooden Handicraft",
         price: data.price || local?.price || "₹0",
         category: data.category || local?.category || "General",
+        description: data.description || local?.description,
         image: useDocImage ? data.image : (local?.image || data.image || ""),
         galleryImages: useDocImage && data.galleryImages?.length ? data.galleryImages : (local?.galleryImages || [data.image]),
       };

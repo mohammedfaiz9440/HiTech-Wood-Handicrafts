@@ -20,6 +20,11 @@ import royalGlassDoorImage from "../assets/images/doors/royal-glass-carved-door.
 import classicalCornicedDoorImage from "../assets/images/doors/classical-corniced-teak-door.jpg";
 import rattanLivingSuiteImage from "../assets/images/rattan-living-lounge-suite.jpg";
 import slateBlueSectionalImage from "../assets/images/slate-blue-sectional-suite.jpg";
+import teakCaneBedsideTable1 from "../assets/images/teak-cane-bedside-table-1.jpg";
+import teakCaneBedsideTable2 from "../assets/images/teak-cane-bedside-table-2.jpg";
+import teakCaneBedsideTable3 from "../assets/images/teak-cane-bedside-table-3.jpg";
+import teakCaneBedsideTable4 from "../assets/images/teak-cane-bedside-table-4.jpg";
+import teakCaneBedsideTable5 from "../assets/images/teak-cane-bedside-table-5.jpg";
 
 export interface Product {
   id: number;
@@ -28,6 +33,7 @@ export interface Product {
   category: string;
   image: string;
   galleryImages: string[];
+  description?: string;
 }
 
 export const products: Product[] = [
@@ -206,6 +212,22 @@ export const products: Product[] = [
     category: "Sofas",
     image: slateBlueSectionalImage,
     galleryImages: [slateBlueSectionalImage],
+  },
+  {
+    id: 23,
+    name: "Handcrafted Teak Wood & Cane Bedside Table",
+    price: "₹11,500",
+    category: "Beds",
+    image: teakCaneBedsideTable1,
+    galleryImages: [
+      teakCaneBedsideTable1,
+      teakCaneBedsideTable2,
+      teakCaneBedsideTable3,
+      teakCaneBedsideTable4,
+      teakCaneBedsideTable5,
+    ],
+    description:
+      "Artisan-crafted from 100% solid seasoned teak wood featuring an exquisite hand-woven natural rattan cane drawer front. Built with a smooth telescopic metal slider, a spacious lower open cubby shelf, and protective raised side rims. Finished in a warm natural polish that highlights the authentic teak wood grain.",
   },
 ];
 

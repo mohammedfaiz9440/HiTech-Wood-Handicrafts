@@ -34,7 +34,8 @@ function ProductDetails() {
   useMetaTags({
     title: product ? product.name : undefined,
     description: product
-      ? `Handcrafted ${product.name} (${product.category}) from HiTech Wood Handicrafts. Price: ${product.price}. 100% solid seasoned teak wood, custom finishes, and safe crate transit across India.`
+      ? product.description ||
+        `Handcrafted ${product.name} (${product.category}) from HiTech Wood Handicrafts. Price: ${product.price}. 100% solid seasoned teak wood, custom finishes, and safe crate transit across India.`
       : undefined,
     image: product?.image,
   });
@@ -227,7 +228,8 @@ I would like to inquire about customization options, delivery timeline, and plac
 
                 {/* Brief artisan description */}
                 <p className="mt-4 text-sm sm:text-base text-gray-600 leading-relaxed">
-                  Precision-crafted from seasoned hardwood by master artisans. Designed with enduring structural integrity, heritage elegance, and tailored finishes for contemporary Indian homes.
+                  {product.description ||
+                    "Precision-crafted from seasoned hardwood by master artisans. Designed with enduring structural integrity, heritage elegance, and tailored finishes for contemporary Indian homes."}
                 </p>
 
 
